@@ -31,9 +31,11 @@ flowchart TD
         U2["SymbolStyle = auto (адаптация под светлую/тёмную тему)"]
     end
 
-    subgraph MSCompat["Совместимость с MS Office (Setup.xcu / Common.xcs)"]
+    subgraph MSCompat["Совместимость с MS Office (Setup.xcu / Common.xcs / Compatibility.xcs)"]
         M1["Формат сохранения по умолчанию: .docx / .xlsx / .pptx"]
         M2["SmartArtToShapes = true"]
+        M3["MSCompatibleFormsMenu = true, AllowCommentsInFootnotes = false"]
+        M4["OOXML-диаграммы: ClockwisePieChartDirection = true, Reverse* = false"]
     end
 
     Build --> Privacy
