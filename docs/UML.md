@@ -31,7 +31,13 @@ flowchart TD
         U2["SymbolStyle = colibre_svg"]
     end
 
+    subgraph MSCompat["Совместимость с MS Office (Setup.xcu / Common.xcs)"]
+        M1["Формат сохранения по умолчанию: .docx / .xlsx / .pptx"]
+        M2["SmartArtToShapes = true"]
+    end
+
     Build --> Privacy
     Build --> Fonts
     Build --> UI
+    Build --> MSCompat
 ```
