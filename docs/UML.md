@@ -28,7 +28,7 @@ flowchart TD
 
     subgraph UI["Ленточный интерфейс (ToolbarMode.xcu / Common.xcs)"]
         U1["Writer / Calc / Impress / Draw: Active = notebookbar.ui (Tabbed)"]
-        U2["SymbolStyle = colibre_svg"]
+        U2["SymbolStyle = auto (адаптация под светлую/тёмную тему)"]
     end
 
     subgraph MSCompat["Совместимость с MS Office (Setup.xcu / Common.xcs)"]
