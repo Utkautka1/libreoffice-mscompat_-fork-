@@ -692,6 +692,7 @@ void DomainMapper::lcl_attribute(Id nName, const Value & val)
         case NS_ooxml::LN_CT_Ind_hanging:
             if (m_pImpl->GetTopContext())
             {
+                m_pImpl->m_bIndHasHanging = true;
                 sal_Int32 nValue = ConversionHelper::convertTwipToMm100_Limited(nIntValue);
                 m_pImpl->GetTopContext()->Insert(
                     PROP_PARA_FIRST_LINE_INDENT, uno::Any( - nValue ));
@@ -741,7 +742,9 @@ void DomainMapper::lcl_attribute(Id nName, const Value & val)
         case NS_ooxml::LN_CT_Ind_firstLine:
             if (m_pImpl->GetTopContext())
             {
-                // TODO: firstLine is supposed to be overridden by hanging - if both are defined.
+                // ECMA-376 §17.3.1.12: w:hanging overrides w:firstLine when both are specified in <w:ind>.
+                if (m_pImpl->m_bIndHasHanging)
+                    break;
 
                 // w:firstLineChars overrides w:firstLine - even if firstLineChars is inherited.
                 // Insert inherited firstLineChars in case none is provided by this style/paragraph
@@ -2785,6 +2788,8 @@ void DomainMapper::sprmWithProps( Sprm& rSprm, const PropertyMapPtr& rContext )
     {
         if (nSprmId == NS_ooxml::LN_CT_PPr_sectPr)
             m_pImpl->SetParaSectpr(true);
+        else if (nSprmId == NS_ooxml::LN_CT_PPrBase_ind)
+            m_pImpl->m_bIndHasHanging = false;
         resolveSprmProps(*this, rSprm);
         if (nSprmId == NS_ooxml::LN_EG_RPrBase_rFonts)
             m_pImpl->appendGrabBag(m_pImpl->m_aInteropGrabBag, u"rFonts"_ustr, m_pImpl->m_aSubInteropGrabBag);

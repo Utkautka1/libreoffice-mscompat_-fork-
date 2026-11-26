@@ -1260,6 +1260,9 @@ public:
     /// A sub-grabbag of m_aInteropGrabBag, like 'spacing'.
     std::vector<css::beans::PropertyValue> m_aSubInteropGrabBag;
 
+    /// True if current <w:ind> element specifies w:hanging (overrides w:firstLine per ECMA-376).
+    bool m_bIndHasHanging = false;
+
     /// ST_PositionOffset values we received
     std::pair<OUString, OUString> m_aPositionOffsets;
     /// ST_AlignH/V values we received

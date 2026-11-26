@@ -37,6 +37,8 @@ flowchart TD
         M3["MSCompatibleFormsMenu = true, AllowCommentsInFootnotes = false"]
         M4["OOXML-диаграммы: ClockwisePieChartDirection = true, Reverse* = false"]
         M5["Calc: синтаксис формул по умолчанию Excel A1 (Лист1!A1)"]
+        M6["Writer (DomainMapper): w:hanging переопределяет w:firstLine (ECMA-376)"]
+        M7["Writer (SwViewShell): защита от краша при InvalidateWindows на disposed-окне"]
     end
 
     Build --> Privacy

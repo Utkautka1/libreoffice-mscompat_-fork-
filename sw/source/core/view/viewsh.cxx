@@ -641,7 +641,7 @@ void SwViewShell::InvalidateWindows( const SwRect &rRect )
 
     for(SwViewShell& rSh : GetRingContainer())
     {
-        if ( rSh.GetWin() )
+        if ( rSh.GetWin() && !rSh.GetWin()->isDisposed() )
         {
             if ( rSh.IsPreview() )
                 ::RepaintPagePreview( &rSh, rRect );
@@ -668,7 +668,7 @@ void SwViewShell::FlushPendingLOKInvalidateTiles()
     // This is basically the loop from SwViewShell::InvalidateWindows().
     for(SwViewShell& rSh : GetRingContainer())
     {
-        if ( rSh.GetWin() )
+        if ( rSh.GetWin() && !rSh.GetWin()->isDisposed() )
         {
             if ( rSh.IsPreview() )
             {
