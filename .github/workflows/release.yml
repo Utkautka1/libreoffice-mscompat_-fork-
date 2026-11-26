@@ -1,0 +1,57 @@
+name: Build and Release LibreOffice MS-Compat
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Multi-Distribution Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential autoconf ccache nasm perl pkg-config \
+            libcups2-dev libfontconfig1-dev libfreetype6-dev libgl1-mesa-dev \
+            libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libice-dev \
+            libsm-dev libx11-dev libxext-dev libxinerama-dev libxrandr-dev \
+            libxrender-dev libxt-dev zlib1g-dev default-jdk ant libepoxy-dev \
+            libxml2-dev libxslt1-dev python3-dev libarchive-zip-perl
+
+      - name: Configure LibreOffice
+        run: |
+          ./autogen.sh \
+            --disable-breakpad \
+            --disable-online-update \
+            --disable-extension-update \
+            --enable-release-build \
+            --without-junit \
+            --with-parallelism=4 \
+            --with-lang="en-US ru"
+
+      - name: Build LibreOffice
+        run: make -j4
+
+      - name: Package tarball and AppImage
+        run: |
+          mkdir -p dist
+          tar -czf dist/libreoffice-mscompat-${{ github.ref_name }}-linux-x86_64.tar.gz -C instdir .
+          cd dist && sha256sum * > SHA256SUMS
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
