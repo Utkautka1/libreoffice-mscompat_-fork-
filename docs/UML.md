@@ -40,6 +40,8 @@ flowchart TD
         M6["Writer (DomainMapper): w:hanging переопределяет w:firstLine (ECMA-376)"]
         M7["Writer (SwViewShell): защита от краша при InvalidateWindows на disposed-окне"]
         M8["Impress (PPTX, GitHub #16270): добавлены userId и providerId в ppt/authors.xml"]
+        M9["Calc (XLSX, GitHub #16378): сохранение переносов строк в ссылках формул (SetIgnoreLineBreaks=false)"]
+        M10["Writer (DOCX, GitHub #16409): регистронезависимый fallback поиска шрифтов в FontTable"]
     end
 
     Build --> Privacy

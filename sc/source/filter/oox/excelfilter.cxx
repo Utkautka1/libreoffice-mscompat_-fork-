@@ -112,9 +112,9 @@ bool ExcelFilter::importDocument()
             assert( pDocSh );
             pDocSh->SetInitialLinkUpdate( pDocSh->GetMedium());
 
-            // ignore line breaks for XLSX documents.
+            // Preserve line breaks in cell references for XLSX documents (GitHub #16378 / modern Excel).
             ScDocOptions aDocOpt = rDoc.GetDocOptions();
-            aDocOpt.SetIgnoreLineBreaks(true);
+            aDocOpt.SetIgnoreLineBreaks(false);
             rDoc.SetDocOptions(aDocOpt);
 
             bool bRet = importFragment( xWorkbookFragment);

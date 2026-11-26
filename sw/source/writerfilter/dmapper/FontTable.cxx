@@ -242,6 +242,15 @@ FontEntry::Pointer_t FontTable::getFontEntryByName(std::u16string_view rName)
         }
     }
 
+    // Fallback to case-insensitive match for lowercase/mixed-case OOXML font references (GitHub #16409).
+    for (const auto& pEntry : m_aFontEntries)
+    {
+        if (pEntry->sFontName.equalsIgnoreAsciiCase(rName))
+        {
+            return pEntry;
+        }
+    }
+
     return nullptr;
 }
 
