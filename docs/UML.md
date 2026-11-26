@@ -36,6 +36,7 @@ flowchart TD
         M2["SmartArtToShapes = true"]
         M3["MSCompatibleFormsMenu = true, AllowCommentsInFootnotes = false"]
         M4["OOXML-диаграммы: ClockwisePieChartDirection = true, Reverse* = false"]
+        M5["Calc: синтаксис формул по умолчанию Excel A1 (Лист1!A1)"]
     end
 
     Build --> Privacy

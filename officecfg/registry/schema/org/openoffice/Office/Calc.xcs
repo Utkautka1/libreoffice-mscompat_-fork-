@@ -1518,6 +1518,7 @@
               </info>
             </enumeration>
           </constraints>
+          <value>1</value>
         </prop>
         <prop oor:name="EnglishFunctionName" oor:type="xs:boolean" oor:nillable="false">
           <!-- UIHints: Tools - Options  Spreadsheet  Formula -->
@@ -1574,6 +1575,7 @@
               </info>
             </enumeration>
           </constraints>
+          <value>1</value>
         </prop>
         <prop oor:name="EmptyStringAsZero" oor:type="xs:boolean" oor:nillable="false">
           <!-- UIHints: Tools - Options  Spreadsheet  Formula -->

@@ -31,7 +31,7 @@ ScFormulaOptions::ScFormulaOptions()
 void ScFormulaOptions::SetDefaults()
 {
     bUseEnglishFuncName = false;
-    eFormulaGrammar     = ::formula::FormulaGrammar::GRAM_NATIVE;
+    eFormulaGrammar     = ::formula::FormulaGrammar::GRAM_NATIVE_XL_A1;
     mbWriteCalcConfig = true;
     meOOXMLRecalc = RECALC_ASK;
     meODFRecalc = RECALC_ASK;
