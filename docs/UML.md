@@ -26,6 +26,12 @@ flowchart TD
         F5["Constantia -> Caladea"]
     end
 
+    subgraph UI["Ленточный интерфейс (ToolbarMode.xcu / Common.xcs)"]
+        U1["Writer / Calc / Impress / Draw: Active = Tabbed"]
+        U2["SymbolStyle = colibre_svg"]
+    end
+
     Build --> Privacy
     Build --> Fonts
+    Build --> UI
 ```

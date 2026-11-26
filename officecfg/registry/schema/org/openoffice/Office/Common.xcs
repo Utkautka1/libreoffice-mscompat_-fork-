@@ -5256,7 +5256,7 @@
           names of the various icon themes ("breeze", "crystal", "elementary",
           etc.).</desc>
         </info>
-        <value>auto</value>
+        <value>colibre_svg</value>
       </prop>
       <prop oor:name="FormControlPilotsEnabled" oor:type="xs:boolean" oor:nillable="false">
         <info>
