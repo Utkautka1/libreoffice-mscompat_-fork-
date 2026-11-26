@@ -190,7 +190,7 @@ SfxDocumentInfoItem::SfxDocumentInfoItem()
     , m_nFileSize(-1)
     , m_bHasTemplate( true )
     , m_bDeleteUserData( false )
-    , m_bUseUserData( true )
+    , m_bUseUserData( false )
     , m_bUseThumbnailSave( true )
 {
 }

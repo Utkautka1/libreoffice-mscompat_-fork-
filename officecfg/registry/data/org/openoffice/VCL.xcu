@@ -1372,22 +1372,42 @@
           <value>Normal,Serif</value>
         </prop>
       </node>
+      <node oor:name="aptos" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>carlito;liberationsans;dejavusans</value>
+        </prop>
+        <prop oor:name="FontType">
+          <value>Normal,SansSerif</value>
+        </prop>
+      </node>
       <node oor:name="candara" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>carlito;dejavusans;liberationsans</value>
+        </prop>
         <prop oor:name="FontType">
           <value>Normal,SansSerif</value>
         </prop>
       </node>
       <node oor:name="consolas" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>liberationmono;dejavusansmono;cousine</value>
+        </prop>
         <prop oor:name="FontType">
           <value>Normal,SansSerif,Fixed</value>
         </prop>
-              </node>
+      </node>
       <node oor:name="constantia" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>caladea;liberationserif;dejavuserif</value>
+        </prop>
         <prop oor:name="FontType">
           <value>Normal,Serif</value>
         </prop>
       </node>
       <node oor:name="corbel" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>carlito;dejavusans;liberationsans</value>
+        </prop>
         <prop oor:name="FontType">
           <value>Normal,SansSerif</value>
         </prop>

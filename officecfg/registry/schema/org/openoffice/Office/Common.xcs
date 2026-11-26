@@ -1649,7 +1649,7 @@
             Properties dialog of the document when saving the document.</desc>
             <label>Use data for document properties</label>
           </info>
-          <value>true</value>
+          <value>false</value>
         </prop>
         <prop oor:name="AutoSave" oor:type="xs:boolean" oor:nillable="false">
           <info>
@@ -2047,14 +2047,14 @@
           <info>
             <desc>Specifies whether to remove editing duration on saving.</desc>
           </info>
-          <value>false</value>
+          <value>true</value>
         </prop>
         <prop oor:name="RemovePersonalInfoOnSaving" oor:type="xs:boolean" oor:nillable="false">
           <info>
             <desc>Specifies whether to remove personal information on
             saving.</desc>
           </info>
-          <value>false</value>
+          <value>true</value>
         </prop>
         <prop oor:name="KeepRedlineInfoOnSaving" oor:type="xs:boolean" oor:nillable="false">
           <info>
@@ -5060,14 +5060,14 @@
         <info>
           <desc>Enable sending crash reports to The Document Foundation</desc>
         </info>
-        <value>true</value>
+        <value>false</value>
       </prop>
       <prop oor:name="ShowTipOfTheDay" oor:type="xs:boolean" oor:nillable="false">
         <!-- UIHints: Tools - Options - General -->
         <info>
           <desc>Determines whether the Tip-of-the-Day dialog is shown on startup.</desc>
         </info>
-        <value>true</value>
+        <value>false</value>
       </prop>
       <prop oor:name="LastTipOfTheDayShown" oor:type="xs:int" oor:nillable="false">
           <info>
