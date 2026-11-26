@@ -1050,9 +1050,8 @@ void XclExpFormulaCell::SaveXml( XclExpXmlStream& rStrm )
             formula::FormulaToken* t = aIter.First();
             while (t)
             {
-                if (t->GetOpCode() == ocMacro || t->GetOpCode() == ocBad)
+                if (t->GetOpCode() == ocMacro)
                 {
-                    // Skip invalid/macro tokens in <f> so Excel does not reject the workbook (GitHub #16048).
                     bValid = false;
                     break;
                 }

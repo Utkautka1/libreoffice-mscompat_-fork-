@@ -42,7 +42,6 @@ flowchart TD
         M8["Impress (PPTX, GitHub #16270): добавлены userId и providerId в ppt/authors.xml"]
         M9["Calc (XLSX, GitHub #16378): сохранение переносов строк в ссылках формул (SetIgnoreLineBreaks=false)"]
         M10["Writer (DOCX, GitHub #16409): регистронезависимый fallback поиска шрифтов в FontTable"]
-        M11["Calc (XLSX, GitHub #16048): пропуск невалидных ocBad-токенов формул при экспорте <f>"]
         M12["Impress (PPTX, GitHub #16270): добавлен якорь <p188:pos> в modernComment"]
         M13["Шрифты (VCL.xcu): добавлена подстановка Segoe UI / Segoe UI Light"]
     end
