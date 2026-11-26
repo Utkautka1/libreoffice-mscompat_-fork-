@@ -39,6 +39,7 @@ flowchart TD
         M5["Calc: синтаксис формул по умолчанию Excel A1 (Лист1!A1)"]
         M6["Writer (DomainMapper): w:hanging переопределяет w:firstLine (ECMA-376)"]
         M7["Writer (SwViewShell): защита от краша при InvalidateWindows на disposed-окне"]
+        M8["Impress (PPTX, GitHub #16270): добавлены userId и providerId в ppt/authors.xml"]
     end
 
     Build --> Privacy

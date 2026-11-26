@@ -147,7 +147,11 @@ CPPUNIT_TEST_FIXTURE(SdOOXMLExportTest5, testNotesAuthorDate)
         assertXPathNoAttribute(pXml, "/p188:cmLst/p188:cm", "created");
         pXml = parseExport(u"ppt/authors.xml"_ustr);
         assertXPath(pXml, "/p188:authorLst/p188:author[@name='Author1']", "initials", u"A1");
+        assertXPath(pXml, "/p188:authorLst/p188:author[@name='Author1']", "userId", u"Author1");
+        assertXPath(pXml, "/p188:authorLst/p188:author[@name='Author1']", "providerId", u"None");
         assertXPath(pXml, "/p188:authorLst/p188:author[@name='Author2']", "initials", u"A2");
+        assertXPath(pXml, "/p188:authorLst/p188:author[@name='Author2']", "userId", u"Author2");
+        assertXPath(pXml, "/p188:authorLst/p188:author[@name='Author2']", "providerId", u"None");
     }
 }
 

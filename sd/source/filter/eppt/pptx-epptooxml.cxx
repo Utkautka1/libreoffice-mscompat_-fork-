@@ -1904,7 +1904,9 @@ void PowerPointExport::WriteModernAuthors()
         pFS->singleElementNS(XML_p188, XML_author,
                              XML_id, i.second.sGuid,
                              XML_name, i.first,
-                             XML_initials, i.second.sInitials);
+                             XML_initials, i.second.sInitials,
+                             XML_userId, i.first,
+                             XML_providerId, "None");
     }
 
     pFS->endElementNS(XML_p188, XML_authorLst);
