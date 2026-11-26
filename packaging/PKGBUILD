@@ -1,0 +1,25 @@
+# Maintainer: MSCompat Fork
+pkgname=libreoffice-mscompat-git
+pkgver=27.2.0.alpha1
+pkgrel=1
+pkgdesc="LibreOffice fork with MS Office compatibility, Ribbon UI, and zero telemetry"
+arch=('x86_64')
+license=('MPL-2.0')
+depends=('ttf-carlito' 'ttf-caladea' 'ttf-liberation' 'gtk3' 'nss' 'icu' 'harfbuzz' 'cairo' 'libxml2' 'libxslt' 'python')
+provides=('libreoffice-fresh' 'libreoffice-fresh-ru')
+conflicts=('libreoffice-fresh' 'libreoffice-fresh-ru' 'libreoffice-still' 'libreoffice-still-ru')
+options=('!strip' '!debug')
+
+package() {
+    local srcdir_lo="/home/u/.gemini/antigravity/scratch/libreoffice-fork"
+    make -C "$srcdir_lo" DESTDIR="$pkgdir" install
+
+    install -dm755 "$pkgdir/usr/bin"
+    ln -sf /usr/local/lib/libreoffice/program/soffice "$pkgdir/usr/bin/soffice"
+    ln -sf /usr/local/lib/libreoffice/program/soffice "$pkgdir/usr/bin/libreoffice"
+
+    if [ -d "$pkgdir/usr/local/share/applications" ]; then
+        install -dm755 "$pkgdir/usr/share/applications"
+        cp -a "$pkgdir/usr/local/share/applications/"*.desktop "$pkgdir/usr/share/applications/" || true
+    fi
+}
