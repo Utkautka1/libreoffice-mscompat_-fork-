@@ -2136,6 +2136,11 @@ bool PowerPointExport::WriteModernComments(sal_uInt32 nPageNum)
         if (bAnyReply)
             pFS->endElementNS(XML_p188, XML_replyLst);
 
+        const RealPoint2D aRealPoint2D(xAnnotation->getPosition());
+        pFS->singleElementNS(XML_p188, XML_pos,
+                             XML_x, OString::number(std::round(convertMm100ToMasterUnit(aRealPoint2D.X * 100))),
+                             XML_y, OString::number(std::round(convertMm100ToMasterUnit(aRealPoint2D.Y * 100))));
+
         writeModernCommentText(pFS, xAnnotation->GetText());
         pFS->endElementNS(XML_p188, XML_cm);
     }

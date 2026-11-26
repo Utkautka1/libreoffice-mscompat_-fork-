@@ -4497,6 +4497,25 @@
           <value>Normal,SansSerif</value>
         </prop>
       </node>
+      <node oor:name="segoeui" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>notosans;liberationsans;dejavusans;arial;carlito</value>
+        </prop>
+        <prop oor:name="FontType">
+          <value>Normal,SansSerif</value>
+        </prop>
+      </node>
+      <node oor:name="segoeuilight" oor:op="replace">
+        <prop oor:name="SubstFonts">
+          <value>notosans;liberationsans;dejavusans;carlito</value>
+        </prop>
+        <prop oor:name="FontWeight">
+          <value>Light</value>
+        </prop>
+        <prop oor:name="FontType">
+          <value>Normal,SansSerif</value>
+        </prop>
+      </node>
       <node oor:name="serif" oor:op="replace">
         <prop oor:name="SubstFonts">
           <value>liberationserif;thorndaleamt;thorndale;timesnewroman;nimbusromanno9l;times;timesroman;newyork;timmons;serif;lucidaserif;lucidabright;roman;nimbusromanno9;bookman;itcbookman;garamond;garamondmt;palatino</value>
