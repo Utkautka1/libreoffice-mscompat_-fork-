@@ -1,0 +1,11 @@
+--- ltmain.sh.orig	2026-11-24 20:11:55.614599405 +0000
++++ ltmain.sh	2026-11-24 20:11:55.697599982 +0000
+@@ -7722,7 +7722,7 @@
+       -specs=*|-fsanitize=*|-fno-sanitize*|-shared-libsan|-static-libsan| \
+       -ffile-prefix-map=*|-fdebug-prefix-map=*|-fmacro-prefix-map=*|-fprofile-prefix-map=*| \
+       -fdiagnostics-color*|-frecord-gcc-switches| \
+-      -fuse-ld=*|-static-*|-fcilkplus|-Wa,*|-Werror|-Werror=*)
++      -fuse-ld=*|--ld-path=*|-static-*|-fcilkplus|-Wa,*|-Werror|-Werror=*)
+         func_quote_arg pretty "$arg"
+ 	arg=$func_quote_arg_result
+         func_append compile_command " $arg"
