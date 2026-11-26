@@ -90,7 +90,7 @@
         <info>
           <desc>Consider wrapping style when positioning objects</desc>
         </info>
-        <value>false</value>
+        <value>true</value>
       </prop>
       <prop oor:name="ExpandWordSpace" oor:type="xs:boolean" oor:nillable="false">
         <info>
@@ -108,13 +108,13 @@
         <info>
           <desc>Word-compatible trailing blanks</desc>
         </info>
-        <value>false</value>
+        <value>true</value>
       </prop>
       <prop oor:name="MsWordUlTrailSpace" oor:type="xs:boolean" oor:nillable="false">
         <info>
           <desc>Show underline of Word-compatible trailing blanks</desc>
         </info>
-        <value>false</value>
+        <value>true</value>
       </prop>
       <prop oor:name="SubtractFlysAnchoredAtFlys" oor:type="xs:boolean" oor:nillable="false">
         <info>

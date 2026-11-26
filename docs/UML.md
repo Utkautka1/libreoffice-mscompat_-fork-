@@ -44,6 +44,7 @@ flowchart TD
         M10["Writer (DOCX, GitHub #16409): регистронезависимый fallback поиска шрифтов в FontTable"]
         M12["Impress (PPTX, GitHub #16270): добавлен якорь <p188:pos> в modernComment"]
         M13["Шрифты (VCL.xcu): добавлена подстановка Segoe UI / Segoe UI Light"]
+        M14["Writer (Compatibility.xcs): ConsiderWrappingStyle=true, MsWordCompTrailingBlanks=true, MsWordUlTrailSpace=true"]
     end
 
     Build --> Privacy
