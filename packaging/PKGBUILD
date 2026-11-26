@@ -1,7 +1,7 @@
 # Maintainer: MSCompat Fork
 pkgname=libreoffice-mscompat-git
 pkgver=27.2.0.alpha1
-pkgrel=1
+pkgrel=2
 pkgdesc="LibreOffice fork with MS Office compatibility, Ribbon UI, and zero telemetry"
 arch=('x86_64')
 license=('MPL-2.0')
@@ -17,9 +17,25 @@ package() {
     install -dm755 "$pkgdir/usr/bin"
     ln -sf /usr/local/lib/libreoffice/program/soffice "$pkgdir/usr/bin/soffice"
     ln -sf /usr/local/lib/libreoffice/program/soffice "$pkgdir/usr/bin/libreoffice"
+    ln -sf /usr/local/lib/libreoffice/program/soffice "$pkgdir/usr/bin/libreofficedev27.2"
 
-    if [ -d "$pkgdir/usr/local/share/applications" ]; then
-        install -dm755 "$pkgdir/usr/share/applications"
-        cp -a "$pkgdir/usr/local/share/applications/"*.desktop "$pkgdir/usr/share/applications/" || true
-    fi
+    install -dm755 "$pkgdir/usr/share/applications"
+    for f in "$pkgdir/usr/local/lib/libreoffice/share/xdg/"*.desktop; do
+        local bname
+        bname="$(basename "$f")"
+        [ "$bname" = "xsltfilter.desktop" ] && continue
+        sed -e 's/Exec=libreofficedev27\.2/Exec=libreoffice/g' \
+            -e 's/Icon=libreofficedev27\.2-/Icon=libreoffice-/g' \
+            "$f" > "$pkgdir/usr/share/applications/libreoffice-$bname"
+    done
+
+    for size in 16x16 24x24 32x32 48x48 64x64 128x128 256x256 512x512 scalable; do
+        local icondir="$srcdir_lo/sysui/desktop/icons/hicolor/$size/apps"
+        [ -d "$icondir" ] || continue
+        install -dm755 "$pkgdir/usr/share/icons/hicolor/$size/apps"
+        for icon in "$icondir"/*.png "$icondir"/*.svg; do
+            [ -f "$icon" ] || continue
+            install -m644 "$icon" "$pkgdir/usr/share/icons/hicolor/$size/apps/libreoffice-$(basename "$icon")"
+        done
+    done
 }
